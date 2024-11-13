@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DeploymentUnits", "DeploymentUnits", "{6A456474-907B-4707-8EEC-4AA46B2A85A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutomatedTests", "AutomatedTests", "{92918E60-EE3D-45AE-A157-43EC3CDC4C13}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{637A8CD7-45C2-4F29-B62D-75C9F3E0272A}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+		..\.gitignore = ..\.gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servers", "Servers", "{3BFF370E-4A33-45AA-95BF-F819CD6CF11B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{EA1BD48F-24ED-403E-B2A4-5DBA06C8A758}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{D853B490-CD45-44F9-8044-16683CF502BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servers", "Servers", "{6EF7D8F4-B6C9-474A-8920-2172967BDB9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3BFF370E-4A33-45AA-95BF-F819CD6CF11B} = {6A456474-907B-4707-8EEC-4AA46B2A85A0}
+		{EA1BD48F-24ED-403E-B2A4-5DBA06C8A758} = {6A456474-907B-4707-8EEC-4AA46B2A85A0}
+		{D853B490-CD45-44F9-8044-16683CF502BB} = {92918E60-EE3D-45AE-A157-43EC3CDC4C13}
+		{6EF7D8F4-B6C9-474A-8920-2172967BDB9F} = {92918E60-EE3D-45AE-A157-43EC3CDC4C13}
+	EndGlobalSection
+EndGlobal
