@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option csharp_namespace = "Server.Controllers.Grpc";
+
+package health;
+
+import "google/protobuf/empty.proto";
+
+service HealthService {
+  rpc CheckHealth(google.protobuf.Empty) returns (HealthResponse);
+}
+
+message HealthResponse {
+  bool isHealthy = 1;
+}
