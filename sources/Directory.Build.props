@@ -1,0 +1,17 @@
+<Project>
+    <PropertyGroup>
+        <Company>Mad-World.nl</Company>
+        <Copyright>Copyright (c) Mad-World.nl 2024</Copyright>
+        <Authors>Oscar Veldman</Authors>
+        <Product>Peregrine Falcon</Product>
+    </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>MadWorldNL.PeregrineFalcon</RootNamespace>
+        <Nullable>enable</Nullable>
+        <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+        <ImplicitUsings>true</ImplicitUsings>
+        <Deterministic>true</Deterministic>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    </PropertyGroup>
+</Project>
