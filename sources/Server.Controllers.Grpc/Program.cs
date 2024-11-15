@@ -1,16 +1,28 @@
 using MadWorldNL.PeregrineFalcon.Services;
 
+const string defaultPolicyName = "DefaultPolicy";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddGrpc();
 builder.Services.AddGrpcReflection();
 
+builder.Services.AddCors(o => o.AddPolicy(defaultPolicyName, policy =>
+{
+    policy
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+}));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.MapGrpcReflectionService();
 app.UseGrpcWeb();
+
+app.UseCors(defaultPolicyName);
 
 app.MapGrpcService<HealthServiceProxy>().EnableGrpcWeb();
 app.MapGet("/",
