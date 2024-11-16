@@ -1,0 +1,18 @@
+@page "/Health"
+@using Google.Protobuf.WellKnownTypes
+@using Server.Controllers.Grpc
+
+@inject HealthService.HealthServiceClient Client;
+
+<p>Api Healthy: @_isHealthy</p>
+
+@code
+{
+    private bool _isHealthy;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var healthResponse = await Client.CheckHealthAsync(new Empty());
+        _isHealthy = healthResponse.IsHealthy;
+    }
+}
