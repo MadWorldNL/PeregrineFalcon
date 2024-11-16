@@ -1,1 +1,15 @@
 name: peregrine-falcon
+services:
+  grpc:
+    image: ghcr.io/madworldnl/peregrinefalcon-grpc:latest
+    container_name: api-grpc
+    build:
+      context: .
+      dockerfile: Server.Controllers.Grpc/Dockerfile
+    environment:
+      - "Kestrel__Endpoints__SecureApi__Url=http://localhost:8081"
+      - "Kestrel__Endpoints__Grpc__Url=http://localhost:8082"
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+      - "8082:8082"

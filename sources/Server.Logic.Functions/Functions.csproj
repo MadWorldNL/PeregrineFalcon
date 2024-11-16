@@ -1,2 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <AssemblyName>MadWorldNL.PeregrineFalcon.Server.Logic.Functions</AssemblyName>
+    </PropertyGroup>
 </Project>

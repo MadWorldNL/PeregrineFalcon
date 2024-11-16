@@ -1,3 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+    <PropertyGroup>
+        <AssemblyName>MadWorldNL.PeregrineFalcon.Server.Logic.Domain</AssemblyName>
+    </PropertyGroup>
 </Project>

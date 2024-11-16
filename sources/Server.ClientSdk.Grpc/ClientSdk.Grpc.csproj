@@ -1,4 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" >
+    <PropertyGroup>
+        <AssemblyName>MadWorldNL.PeregrineFalcon.Server.ClientSdk.Grpc</AssemblyName>
+    </PropertyGroup>
+    
     <ItemGroup>
         <PackageReference Include="Google.Protobuf" />
         <PackageReference Include="Grpc.Core" />
