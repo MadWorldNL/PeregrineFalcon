@@ -6,10 +6,14 @@ package health;
 
 import "google/protobuf/empty.proto";
 
+// HealthService provides a basic health check endpoint to verify the application's availability.
 service HealthService {
+  // The CheckHealth method checks if the application is alive and running.
   rpc CheckHealth(google.protobuf.Empty) returns (HealthResponse);
 }
 
+// HealthResponse represents the result of a health check operation.
 message HealthResponse {
+  // A boolean field indicating whether the application is healthy or not.
   bool isHealthy = 1;
 }

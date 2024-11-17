@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+option csharp_namespace = "Server.Controllers.Grpc";
+
+package curriculum_vitae;
+
+import "google/protobuf/empty.proto";
+
+// The service for managing curriculum vitae (CV) operations.
+service CurriculumVitaeService {
+  // Retrieves a CV based on the provided ID.
+  rpc GetCurriculumVitae (GetCurriculumVitaeRequest) returns (GetCurriculumVitaeResponse);
+}
+
+// The request message for retrieving a CV.
+message GetCurriculumVitaeRequest {
+  // The unique identifier for the CV being requested.
+  string id = 1;
+}
+
+// The response message containing CV details.
+message GetCurriculumVitaeResponse {
+  // The unique identifier of the CV.
+  string id = 1;
+  // The full name of the individual.
+  string fullName = 2;
+  // The professional title or designation of the individual (e.g., Software Engineer, Project Manager).
+  string title = 3;
+  // The gender of the individual (e.g., Male, Female, Non-binary).
+  string gender = 4;
+  // Specifies the type of driver's license the individual holds (e.g., Class A, Class B, or specific regional categories).
+  string driverLicence = 5;
+  // A brief personal or professional summary about the individual.
+  string description = 6;
+  // A link or encoded data representing the individual's profile photo.
+  string profilePhoto = 7;
+  // A list of work experiences, detailing previous jobs or professional roles held by the individual.
+  repeated WorkExperience workExperiences = 8;
+  // A list of educational achievements, such as degrees or certifications from academic institutions.
+  repeated Education educations = 9;
+  // A list of certifications earned by the individual, demonstrating specialized skills or qualifications.
+  repeated Certification certifications = 10;
+  // A list of skills highlighting the individual's areas of expertise or proficiency.
+  repeated Skill skills = 11;
+  // A list of languages the individual is proficient in, along with fluency levels.
+  repeated Language languages = 12;
+  // A list of interests or hobbies that reflect the individual's personal or professional passions.
+  repeated Interest interests = 13;
+  // A collection of relevant links, such as personal websites, LinkedIn profiles, or portfolios.
+  repeated Link links = 14;
+}
+
+message WorkExperience {
+  
+}
+
+message Education {
+  
+}
+
+message Certification {
+
+}
+
+message Skill {
+  
+}
+
+message Language {
+  
+}
+
+message Interest {
+  
+}
+
+message Link {
+  
+}
