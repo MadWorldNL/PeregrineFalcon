@@ -5,6 +5,7 @@ option csharp_namespace = "Server.Controllers.Grpc";
 package curriculum_vitae;
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
 
 // The service for managing curriculum vitae (CV) operations.
 service CurriculumVitaeService {
@@ -20,6 +21,22 @@ message GetCurriculumVitaeRequest {
 
 // The response message containing CV details.
 message GetCurriculumVitaeResponse {
+  // The unique identifier of the CV.
+  string id = 1;
+  // A description of the CV.
+  string description = 2;
+  // Automatically received the default CV if the customer does not specify an ID.
+  bool isDefault = 3;
+  // The detailed curriculum vitae data.
+  CurriculumVitae curriculumVitae = 4;
+  // The timestamp when the CV was created.
+  google.protobuf.Timestamp createdAt = 5;
+  // The timestamp when the CV was last modified.
+  google.protobuf.Timestamp modifiedAt = 6;
+}
+
+// The curriculum vitae message containing all relevant details.
+message CurriculumVitae {
   // The unique identifier of the CV.
   string id = 1;
   // The full name of the individual.
@@ -50,30 +67,74 @@ message GetCurriculumVitaeResponse {
   repeated Link links = 14;
 }
 
+// A message representing a work experience.
 message WorkExperience {
-  
+  // The title or position held in the job.
+  string title = 1;
+  // The logo or emblem associated with the workplace.
+  string logoImage = 2;
+  // The start date of the work experience.
+  google.protobuf.Timestamp start = 3;
+  // The end date of the work experience (optional, null for ongoing).
+  optional google.protobuf.Timestamp end = 4;
+  // A description of the role and responsibilities.
+  string description = 5;
+  // A list of technologies or tools used in the role.
+  repeated string technologiesUsed = 6;
 }
 
+// A message representing an educational achievement.
 message Education {
-  
+  // The title of the degree or certification earned.
+  string title = 1;
+  // The name of the school or institution.
+  string school = 2;
+  // The starting year of the education.
+  string startYear = 3;
+  // The completion year of the education.
+  string endYear = 4;
 }
 
+// A message representing a professional certification.
 message Certification {
-
+  // The title of the certification.
+  string title = 1;
+  // The company or organization that issued the certification.
+  string company = 2;
+  // The timestamp when the certification was received.
+  google.protobuf.Timestamp ReceivedAt = 3;
+  // A link to the certification or relevant details.
+  Link location = 4;
 }
 
+// A message representing a skill.
 message Skill {
-  
+  // The name or title of the skill.
+  string title = 1;
+  // The type or category of the skill (e.g., technical, soft).
+  string type = 2;
+  // The proficiency level of the skill.
+  string level = 3;
 }
 
+// A message representing a language proficiency.
 message Language {
-  
+  // The name of the language.
+  string name = 1;
+  // The proficiency level in the language.
+  string level = 2;
 }
 
+// A message representing an interest or hobby.
 message Interest {
-  
+  // The name of the interest or hobby.
+  string name = 1;
 }
 
+// A message representing a url link
 message Link {
-  
+  // A description of the link or its purpose.
+  string description = 1;
+  // The URL of the link.
+  string url = 2;
 }
