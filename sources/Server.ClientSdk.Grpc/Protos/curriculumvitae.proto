@@ -4,7 +4,6 @@ option csharp_namespace = "Server.Controllers.Grpc";
 
 package curriculum_vitae;
 
-import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
 // The service for managing curriculum vitae (CV) operations.

@@ -6,6 +6,9 @@ services:
     build:
       context: .
       dockerfile: Server.Controllers.Grpc/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
     environment:
       - "Kestrel__Endpoints__SecureApi__Url=http://localhost:8081"
       - "Kestrel__Endpoints__Grpc__Url=http://localhost:8082"
@@ -13,3 +16,27 @@ services:
       - "8080:8080"
       - "8081:8081"
       - "8082:8082"
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Secret1234
+      - PGUSER=postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready", "-d", "db_prod" ]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+networks:
+  postgres:
+volumes:
+  postgres-data:
