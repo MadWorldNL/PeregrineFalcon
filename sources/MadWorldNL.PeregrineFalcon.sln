@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFi
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
 		..\.gitignore = ..\.gitignore
+		..\CODE_OF_CONDUCT.md = ..\CODE_OF_CONDUCT.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servers", "Servers", "{3BFF370E-4A33-45AA-95BF-F819CD6CF11B}"
@@ -57,6 +58,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		..\documentation\CSharpStyleGuide.md = ..\documentation\CSharpStyleGuide.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Github", "Github", "{AFC896AD-515A-473B-9A06-0FD9F143290F}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\ISSUE_TEMPLATE\bug_report.md = ..\.github\ISSUE_TEMPLATE\bug_report.md
+		..\.github\ISSUE_TEMPLATE\feature_request.md = ..\.github\ISSUE_TEMPLATE\feature_request.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +88,7 @@ Global
 		{16F3C353-9A81-4A92-8756-E8ADC7ED2997} = {EA1BD48F-24ED-403E-B2A4-5DBA06C8A758}
 		{E05B6C83-2EF3-4F72-98F3-7E87E29AE35F} = {EA1BD48F-24ED-403E-B2A4-5DBA06C8A758}
 		{E6A1C7E0-4424-4D9A-A4FE-80BFE368B916} = {637A8CD7-45C2-4F29-B62D-75C9F3E0272A}
+		{AFC896AD-515A-473B-9A06-0FD9F143290F} = {637A8CD7-45C2-4F29-B62D-75C9F3E0272A}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{90419854-B383-486B-97DE-2B33C99686D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
