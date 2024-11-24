@@ -8,19 +8,39 @@ import "google/protobuf/timestamp.proto";
 
 // The service for managing curriculum vitae (CV) operations.
 service CurriculumVitaeService {
+  // // Creates a new CV with the provided details.
+  rpc CreateCurriculumVitae (CreateCurriculumVitaeRequest) returns (CreateCurriculumVitaeResponse);
   // Retrieves a CV based on the provided ID.
   rpc GetCurriculumVitae (GetCurriculumVitaeRequest) returns (GetCurriculumVitaeResponse);
+  // Updates an existing CV with new information, partially modifying fields.
+  rpc PatchCurriculumVitae (PatchCurriculumVitaeRequest) returns (PatchCurriculumVitaeResponse);
+}
+
+// The request message for creating a new CV.
+message CreateCurriculumVitaeRequest {
+  // A description of the CV.
+  string description = 1;
+  // Automatically received the default CV if the customer does not specify an ID.
+  bool isDefault = 2;
+}
+
+// The response message for creating a new CV.
+message CreateCurriculumVitaeResponse {
+  // The unique identifier of the CV and meta data.
+  string id = 1;
+  // The number of revisions made to the CV (starts at 0).
+  int32 revisionCounter = 2;
 }
 
 // The request message for retrieving a CV.
 message GetCurriculumVitaeRequest {
-  // The unique identifier for the CV being requested.
+  // The unique identifier for the CV and meta data being requested.
   string id = 1;
 }
 
 // The response message containing CV details.
 message GetCurriculumVitaeResponse {
-  // The unique identifier of the CV.
+  // The unique identifier of the CV and meta data.
   string id = 1;
   // A description of the CV.
   string description = 2;
@@ -32,6 +52,28 @@ message GetCurriculumVitaeResponse {
   google.protobuf.Timestamp createdAt = 5;
   // The timestamp when the CV was last modified.
   google.protobuf.Timestamp modifiedAt = 6;
+  // The current revision number of the CV.
+  int32 revisionCounter = 7;
+}
+
+// The request message for updating (patching) a CV.
+message PatchCurriculumVitaeRequest {
+  // The unique identifier of the CV and meta data to update.
+  string id = 1;
+  // A description of the CV.
+  string description = 2;
+  // Automatically received the default CV if the customer does not specify an ID.
+  bool isDefault = 3;
+  // The revision number of the CV being updated (for concurrency checks).
+  int32 revisionCounter = 4;
+}
+
+// The response message for updating a CV.
+message PatchCurriculumVitaeResponse {
+  // The unique identifier of the updated CV.
+  string id = 1;
+  // The new revision number of the CV after the update.
+  int32 revisionCounter = 2;
 }
 
 // The curriculum vitae message containing all relevant details.
@@ -68,72 +110,86 @@ message CurriculumVitae {
 
 // A message representing a work experience.
 message WorkExperience {
+  // The unique identifier of the work experience.
+  string id = 1;
   // The title or position held in the job.
-  string title = 1;
+  string title = 2;
   // The logo or emblem associated with the workplace.
-  string logoImage = 2;
+  string logoImage = 3;
   // The start date of the work experience.
-  google.protobuf.Timestamp start = 3;
+  google.protobuf.Timestamp start = 4;
   // The end date of the work experience (optional, null for ongoing).
-  optional google.protobuf.Timestamp end = 4;
+  optional google.protobuf.Timestamp end = 5;
   // A description of the role and responsibilities.
-  string description = 5;
+  string description = 6;
   // A list of technologies or tools used in the role.
-  repeated string technologiesUsed = 6;
+  repeated string technologiesUsed = 7;
 }
 
 // A message representing an educational achievement.
 message Education {
+  // The unique identifier of the education.
+  string id = 1;
   // The title of the degree or certification earned.
-  string title = 1;
+  string title = 2;
   // The name of the school or institution.
-  string school = 2;
+  string school = 3;
   // The starting year of the education.
-  string startYear = 3;
+  string startYear = 4;
   // The completion year of the education.
-  string endYear = 4;
+  string endYear = 5;
 }
 
 // A message representing a professional certification.
 message Certification {
+  // The unique identifier of the certification.
+  string id = 1;
   // The title of the certification.
-  string title = 1;
+  string title = 2;
   // The company or organization that issued the certification.
-  string company = 2;
+  string company = 3;
   // The timestamp when the certification was received.
-  google.protobuf.Timestamp ReceivedAt = 3;
+  google.protobuf.Timestamp ReceivedAt = 4;
   // A link to the certification or relevant details.
-  Link location = 4;
+  Link location = 5;
 }
 
 // A message representing a skill.
 message Skill {
+  // The unique identifier of the skill.
+  string id = 1;
   // The name or title of the skill.
-  string title = 1;
+  string title = 2;
   // The type or category of the skill (e.g., technical, soft).
-  string type = 2;
+  string type = 3;
   // The proficiency level of the skill.
-  string level = 3;
+  string level = 4;
 }
 
 // A message representing a language proficiency.
 message Language {
+  // The unique identifier of the language.
+  string id = 1;
   // The name of the language.
-  string name = 1;
+  string name = 2;
   // The proficiency level in the language.
-  string level = 2;
+  string level = 3;
 }
 
 // A message representing an interest or hobby.
 message Interest {
+  // The unique identifier of the interest.
+  string id = 1;
   // The name of the interest or hobby.
-  string name = 1;
+  string name = 2;
 }
 
 // A message representing a url link
 message Link {
+  // The unique identifier of the link.
+  string id = 1;
   // A description of the link or its purpose.
-  string description = 1;
+  string description = 2;
   // The URL of the link.
-  string url = 2;
+  string url = 3;
 }
